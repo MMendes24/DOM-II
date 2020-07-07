@@ -62,6 +62,27 @@ headerTest.forEach(function(head){
 const footerPara = document.querySelector('footer p')
 footerPara.addEventListener('dblclick', () => {
     footerPara.style.color = "white";
+    event.stopPropagation()
 });
 
 //event 8
+const paraGeneral = document.querySelector('p')
+    window.addEventListener('resize', () => {
+        paraGeneral.style.color = "red";
+});
+
+// event 9
+const selectText = document.querySelectorAll('p')
+selectText.forEach((text) => {
+    text.addEventListener('mouseup', () => {
+        text.style.fontSize = "3rem"
+    })
+})
+
+// event 10
+const noContext = document.querySelectorAll('h2')
+noContext.forEach(function(context){
+    context.addEventListener('contextmenu', e => {
+        e.preventDefault();
+    });
+});
